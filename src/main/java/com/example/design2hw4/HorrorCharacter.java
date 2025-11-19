@@ -1,13 +1,27 @@
 package com.example.design2hw4;
-
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Horror character POJO, contains all info for making a horror character
+ */
+
 public class HorrorCharacter
 {
+    /**
+     * Variables for names, subtypes, and dates or rebirth
+     */
+
     private SimpleStringProperty name;
     private SimpleStringProperty subtype;
     private LocalDate dateOfRebirth;
+
+    /**
+     * Constructor for class
+     * @param name
+     * @param subtype
+     * @param dateOfRebirth
+     */
 
     public HorrorCharacter(String name, String subtype, LocalDate dateOfRebirth)
     {
@@ -15,6 +29,10 @@ public class HorrorCharacter
         this.subtype = new SimpleStringProperty(subtype);
         this.dateOfRebirth = dateOfRebirth;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public String getName()
     {
@@ -55,6 +73,11 @@ public class HorrorCharacter
     {
         this.dateOfRebirth = dateOfRebirth;
     }
+
+    /**
+     * Method to calculate years since monster rebirthed (just in case)
+     * @return
+     */
 
     public int yearsSinceRebirth()
     {
