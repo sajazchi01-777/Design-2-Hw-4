@@ -90,6 +90,7 @@ public class SecondaryController implements Initializable
             successText.setText("Character added successfully!");
             PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
             pause.setOnFinished(actionEvent -> btnFinish.getScene().getWindow().hide());
+            pause.play();
         });
 
         timeline.play();
