@@ -16,15 +16,15 @@ public class HorrorCharApp extends Application
 {
 
     /**
-     * Scene variable
+     * Scene variable. A scene is the container within the window (stage).
      */
 
     private static Scene scene;
 
     /**
      * Method that starts the window and shows it
-     * @param stage
-     * @throws IOException
+     * @param stage (window)
+     * @throws IOException (will throw IOException into the void)
      */
 
     @Override
@@ -39,8 +39,8 @@ public class HorrorCharApp extends Application
 
     /**
      * Method that sets root
-     * @param fxml
-     * @throws IOException
+     * @param fxml (file that contains all the things that make up the view (made in SceneBuilder))
+     * @throws IOException (will also throw IOException into the void)
      */
 
     static void setRoot(String fxml) throws IOException
@@ -50,9 +50,9 @@ public class HorrorCharApp extends Application
 
     /**
      * Method that loads the fxml file, returns the method that loads it.
-     * @param fxml
-     * @return
-     * @throws IOException
+     * @param fxml (takes the name of the fxml file, finds it, then loads it.)
+     * @return fxmlLoader.load(); (method that loads the fxml)
+     * @throws IOException (will also throw IOException into the void)
      */
 
     public static Parent loadFXML(String fxml) throws IOException
@@ -63,7 +63,6 @@ public class HorrorCharApp extends Application
 
     /**
      * Main, launches the application
-     * @param args
      */
 
     public static void main(String[] args)
