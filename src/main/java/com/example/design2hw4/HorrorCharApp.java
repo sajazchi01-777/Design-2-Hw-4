@@ -8,10 +8,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This is the main App
+ */
+
 public class HorrorCharApp extends Application
 {
 
+    /**
+     * Scene variable
+     */
+
     private static Scene scene;
+
+    /**
+     * Method that starts the window and shows it
+     * @param stage
+     * @throws IOException
+     */
 
     @Override
     public void start(Stage stage) throws IOException
@@ -23,16 +37,34 @@ public class HorrorCharApp extends Application
         stage.show();
     }
 
+    /**
+     * Method that sets root
+     * @param fxml
+     * @throws IOException
+     */
+
     static void setRoot(String fxml) throws IOException
     {
         scene.setRoot(loadFXML(fxml));
     }
+
+    /**
+     * Method that loads the fxml file, returns the method that loads it.
+     * @param fxml
+     * @return
+     * @throws IOException
+     */
 
     public static Parent loadFXML(String fxml) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HorrorCharApp.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+    /**
+     * Main, launches the application
+     * @param args
+     */
 
     public static void main(String[] args)
     {
