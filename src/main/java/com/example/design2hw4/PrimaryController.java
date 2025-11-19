@@ -26,9 +26,16 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
+/**
+ * PrimaryController class, controls the primary view.
+ */
 
 public class PrimaryController implements Initializable
 {
+
+    /**
+     * Variables for all components of the primary view that need to be controlled
+     */
 
     @FXML private TableView<HorrorCharacter> tblHorrorChar;
     @FXML private TableColumn<HorrorCharacter, String> clmName;
@@ -43,12 +50,27 @@ public class PrimaryController implements Initializable
     private Scene scene;
     private Parent root;
 
+    /**
+     * Creating an observable list for the tableview
+     */
+
     ObservableList<HorrorCharacter> horrorCharList = FXCollections.observableArrayList();
+
+    /**
+     * Method that calls the method that opens secondary view when the create button is pressed.
+     * @param event (button being pressed)
+     * @throws IOException
+     */
 
     private void createButtonPressed(ActionEvent event) throws IOException
     {
         openSecondary();
     }
+
+    /**
+     * Method that actually opens up the secondary view
+     * @throws IOException
+     */
 
     @FXML public void openSecondary() throws IOException
     {
@@ -70,10 +92,20 @@ public class PrimaryController implements Initializable
         return horrorCharList;
     }
 
+    /**
+     * Method that adds horror character objects to the horror character observable list
+     * @param hc (horror character object)
+     */
+
     public void addHorrorCharacter(HorrorCharacter hc)
     {
         horrorCharList.add(hc);
     }
+
+    /**
+     * Method that deletes objects from the observable list, also contains code that controls the progress indicator
+     * @param e (Delete button being pressed)
+     */
 
     @FXML
     public void deleteButtonPressed(ActionEvent e)
@@ -105,6 +137,10 @@ public class PrimaryController implements Initializable
         timeline.play();
     }
 
+    /**
+     * Method that makes the progress indicator activate and play an animation whenever an edit is made
+     */
+
     private void showEditProgress() {
         progInd.setProgress(0);
 
@@ -119,6 +155,12 @@ public class PrimaryController implements Initializable
         timeline.play();
         progInd.setProgress(0);
     }
+
+    /**
+     * Initialize method, sets all components of the main view
+     * @param url
+     * @param resourceBundle
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
