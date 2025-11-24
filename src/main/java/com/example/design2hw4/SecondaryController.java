@@ -68,13 +68,11 @@ public class SecondaryController implements Initializable
          * Finish button is set disabled so it cannot be pressed again
          */
 
-
         btnFinish.setDisable(true);
 
         /**
          * Code to have the progress bar go through an animation when a new character is made
          */
-
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progBar.progressProperty(), 0)),

@@ -74,10 +74,10 @@ public class PrimaryController implements Initializable
 
     @FXML public void openSecondary() throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
-        root = loader.load();
-        SecondaryController secController = loader.getController();
-        secController.setPrimaryController(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml")); //creates an fxmlLoader and tells it to load the layout from secondary.fxml
+        root = loader.load(); //actually loads the fxml file
+        SecondaryController secController = loader.getController(); //gets the secondary controller instance
+        secController.setPrimaryController(this); //calls the method in the secondary controller that passes the primary controller to it, allowing the secondary window to call methods on the primary window
 
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -170,16 +170,16 @@ public class PrimaryController implements Initializable
 
         btnDelete.setDisable(true);
 
-        clmName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        clmSubtype.setCellValueFactory(new PropertyValueFactory<>("subtype"));
-        clmRebirth.setCellValueFactory(new PropertyValueFactory<>("dateOfRebirth"));
+        clmName.setCellValueFactory(new PropertyValueFactory<>("name")); //tells the column to display the getName method
+        clmSubtype.setCellValueFactory(new PropertyValueFactory<>("subtype")); //tells column to display the getSubtype method
+        clmRebirth.setCellValueFactory(new PropertyValueFactory<>("dateOfRebirth")); //tells column to display the getDateOfRebirth method
 
         tblHorrorChar.setItems(horrorCharList);
 
 
-        clmName.setCellFactory(TextFieldTableCell.forTableColumn());
+        clmName.setCellFactory(TextFieldTableCell.forTableColumn()); //uses text field for editing cells, same with clmSubtype
         clmSubtype.setCellFactory(TextFieldTableCell.forTableColumn());
-        clmRebirth.setCellFactory(TextFieldTableCell.forTableColumn(new LocalDateStringConverter()));
+        clmRebirth.setCellFactory(TextFieldTableCell.forTableColumn(new LocalDateStringConverter())); //uses converter so that text to LocalDate works
 
 
         clmName.setOnEditCommit(event -> {
@@ -199,7 +199,7 @@ public class PrimaryController implements Initializable
 
         tblHorrorChar.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             btnDelete.setDisable(newSelection == null);
-        });
+        }); //when row is selected, button is enabled, when row is not selected, it is disabled
 
         horrorCharList.add(new HorrorCharacter("Dracula", "Vampire", LocalDate.of(1897, 5, 26)));
         horrorCharList.add(new HorrorCharacter("Zombie Bob", "Zombie", LocalDate.of(2001, 10, 31)));
